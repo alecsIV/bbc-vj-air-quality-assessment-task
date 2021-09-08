@@ -1,38 +1,58 @@
 import {Component} from "preact";
-import {createRef} from "preact/compat";
 
 export default class CitySelector extends Component {
     constructor(props) {
         super(props);
-        this.detailsRef = createRef();
+        this.state = {
+            selectedCity: {}
+        }
     }
 
-    displayCityInfo(city) {
-        this.detailsRef.current.innerHTML = ''
+    displayCityInfo(selectedCity) {
+        // Set the state for the selected city
+        this.setState({selectedCity});
 
-        const cityName = document.createElement("span");
-        const cityCigg = document.createElement("span");
-        const cityAqi = document.createElement("span");
+        // Disable currently active button
+        const cityButtonActive = document.querySelector(`.active`);
+        if (cityButtonActive !== null) cityButtonActive.classList.toggle('active');
 
-        cityName.className = 'city__details--name'
-        cityName.innerHTML = city.name;
-        cityName.className = 'city__details--cigg'
-        cityCigg.innerHTML = `${city.cigg}*`;
-        cityName.className = 'city__details--aqi'
-        cityAqi.innerHTML = city.aqi;
+        // Assign newly activated button
+        const cityButton = document.querySelector(`#city-selector__button--${selectedCity.name}`);
+        if (cityButton !== null) cityButton.classList.toggle('active')
+    }
 
-        this.detailsRef.current.append(cityName, cityCigg, cityAqi)
+    getCigarettesImages() {
+        let images = []
+
+        for (let i = 0; i <= this.state.selectedCity.cigg; i++) {
+            images.push(<img
+                className='city-selector__details--image' src="../../assets/img/ciggrette_icon.png" alt="Cigarette"/>)
+        }
+        return images;
     }
 
     render() {
-        return <div>
-            {
-                this.props.citiesData.map(city => {
-                    return <button key={city.name} onClick={() => this.displayCityInfo(city)}>{city.name}</button>
-                })
-            }
-            <div className="city__details" ref={this.detailsRef} />
-            <span>{`*${this.props.langData['compare-tabs_1_method']}`}</span>
+        return <div className='city-selector-interactive'>
+            <div className="city-selector__options">
+                {
+                    this.props.citiesData.map(city => {
+                        return <button
+                            className='city-selector__button' id={`city-selector__button--${city.name}`} key={city.name}
+                            onClick={() => this.displayCityInfo(city)}>{city.name}</button>
+                    })
+                }
+            </div>
+            <div
+                className={`city-selector__details ${(Object.keys(this.state.selectedCity).length > 1) ? '' : 'hidden'}`}
+                ref={this.detailsRef}>
+                <h1 className='city-selector__details--name'>{this.state.selectedCity.name}</h1>
+                <div className="city-selector__details--image-container">
+                    {this.getCigarettesImages()}
+                </div>
+                <p className='city-selector__details--cigg'>{this.state.selectedCity.cigg}*</p>
+                <p className='city-selector__details--aqi'>{this.state.selectedCity.aqi}</p>
+            </div>
+            <span className='city-selector__footnote'>{`*${this.props.langData['compare-tabs_1_method']}`}</span>
         </div>
     }
 
