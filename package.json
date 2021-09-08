@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "name": "bbc-vj-air-quality-assessment-task",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "preact build --dest dist",
+    "serve": "sirv dist --port 8080 --cors --single",
+    "start": "preact watch",
+    "lint": "eslint src"
+  },
+  "eslintConfig": {
+    "extends": "preact",
+    "ignorePatterns": [
+      "dist/"
+    ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-preact-pure": "^2.0.0",
+    "eslint": "^6.0.1",
+    "eslint-config-preact": "^1.1.0",
+    "node-sass": "^6.0.1",
+    "preact-cli": "^3.0.0",
+    "preact-i18n": "^1.5.0",
+    "sass-loader": "^12.1.0",
+    "sirv-cli": "1.0.3"
+  },
+  "dependencies": {
+    "preact": "^10.3.2",
+    "preact-render-to-string": "^5.1.4"
+  }
+}

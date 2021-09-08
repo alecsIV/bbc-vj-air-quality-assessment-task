@@ -1,0 +1,9 @@
+{
+  "name": "bbc-vj-air-quality-assessment-task",
+  "short_name": "bbc-vj-air-quality-assessment-task",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "theme_color": "#673ab8"
+}
