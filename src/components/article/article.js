@@ -21,17 +21,21 @@ export default class Article extends Component {
                     href={this.props.langData['article-info_1_category_url']}
                     target="_blank" rel="noreferrer">{this.props.langData['article-info_1_category']}</a></span>
             </div>
-            {getParasData(this.props.langData).map((par, i) => {
-                if (i <= 4) { // number of paragraphs before interactive
-                    return <p key={i}>{par}</p>
-                }
-            })}
-            <CitySelector langData={this.props.langData} citiesData={this.props.citiesData}/>
-            {getParasData(this.props.langData).map((par, i) => {
-                if (i > 4) { // number of paragraphs after interactive
-                    return <p key={i}>{par}</p>
-                }
-            })}
+            <div className="article__content">
+                <div className="article__section">
+                    {getParasData(this.props.langData).map((par, i) => {
+                        if (i <= 4) { // number of paragraphs before interactive
+                            return <p key={i}>{par}</p>
+                        }
+                    })}
+                </div>
+                <CitySelector langData={this.props.langData} citiesData={this.props.citiesData}/>
+                {getParasData(this.props.langData).map((par, i) => {
+                    if (i > 4) { // number of paragraphs after interactive
+                        return <p key={i}>{par}</p>
+                    }
+                })}
+            </div>
         </div>
     }
 }
