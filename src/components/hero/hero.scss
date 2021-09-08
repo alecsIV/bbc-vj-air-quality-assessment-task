@@ -1,0 +1,17 @@
+.hero {
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+
+  &__title {
+    &__container {
+      max-width: $middle-column-width;
+      padding: 16px 32px 0;
+      margin: 0 auto;
+      background: #fafafa;
+    }
+  }
+}

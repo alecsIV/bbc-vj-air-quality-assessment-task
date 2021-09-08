@@ -1,0 +1,12 @@
+.article {
+  &__details {
+    max-width: $middle-column-width;
+    //text-align: right;
+    margin: 0 auto;
+    padding: 0 32px;
+
+    & > span {
+      display: block;
+    }
+  }
+}
