@@ -1,10 +1,13 @@
 import {Component} from "preact";
+import GaugeSVG from '../gauge-svg/gauge-svg';
+import {objectAttrSum} from "../../utils/helpers";
 
 export default class CitySelector extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedCity: {}
+            selectedCity: {},
+            ciggSum: objectAttrSum(this.props.citiesData, 'cigg')
         }
     }
 
@@ -24,12 +27,14 @@ export default class CitySelector extends Component {
     getCigarettesImages() {
         let images = []
 
-        for (let i = 0; i <= this.state.selectedCity.cigg; i++) {
+        for (let i = 0; i < this.state.selectedCity.cigg; i++) {
             images.push(<img
-                className='city-selector__details--image' src="../../assets/img/ciggrette_icon.png" alt="Cigarette"/>)
+                className='city-selector__details__cigg--image' src="../../assets/img/ciggrette_icon.png"
+                alt="Cigarette"/>)
         }
         return images;
     }
+
 
     render() {
         return <div className='city-selector-interactive'>
@@ -46,11 +51,16 @@ export default class CitySelector extends Component {
                 className={`city-selector__details ${(Object.keys(this.state.selectedCity).length > 1) ? '' : 'hidden'}`}
                 ref={this.detailsRef}>
                 <h1 className='city-selector__details--name'>{this.state.selectedCity.name}</h1>
-                <div className="city-selector__details--image-container">
-                    {this.getCigarettesImages()}
+                <div className="city-selector__details__cigg">
+                    <p className='city-selector__details__cigg--text'>{this.state.selectedCity.cigg}*</p>
+                    <div className="city-selector__details__cigg--image-container">
+                        {this.getCigarettesImages()}
+                    </div>
                 </div>
-                <p className='city-selector__details--cigg'>{this.state.selectedCity.cigg}*</p>
                 <p className='city-selector__details--aqi'>{this.state.selectedCity.aqi}</p>
+                <GaugeSVG
+                    totalCiggSum={this.state.ciggSum}
+                    currentCiggNum={this.state.selectedCity.cigg}/>
             </div>
             <span className='city-selector__footnote'>{`*${this.props.langData['compare-tabs_1_method']}`}</span>
         </div>
