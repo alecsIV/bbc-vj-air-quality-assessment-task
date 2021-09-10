@@ -1,3 +1,8 @@
+.city-selector-interactive {
+  max-width: $middle-column-width;
+  margin: 0 auto;
+  padding: 16px 32px;
+}
 .city-selector {
   &__button {
     border: 1px solid #444444;
@@ -14,13 +19,37 @@
   }
 
   &__details {
-    &--image {
-      height: 200px;
+    &__cigg {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      &--image-container {
+        max-width: 50%;
+      }
+
+      &--text {
+        font-size: 72px;
+      }
+
+      &--image {
+        width: 10%;
+        min-width: 30px;
+      }
+    }
+
+    &--aqi {
+      font-size: 72px;
+      text-align: center;
     }
 
     &.hidden {
       display: none;
     }
+  }
+
+  &__footnote {
+    font-weight: bold;
   }
 
 }
