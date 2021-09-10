@@ -12,14 +12,17 @@ export default class GaugeSvg extends Component {
 
 
     calculateArrowAngle() {
-        const maxTick = 80; // predefined for current svg
-        const minTick = -80; // predefined for current svg
-        //@todo get the max and min number from db
-        const arrowDegree = normaliseVal(parseInt(this.props.currentCiggNum), 0, 12, minTick, maxTick); // gets the angle for 1 cigarette on the gauge
+        // Define SVG-specific min and max values
+        const maxTick = 80; // the max degree of the gauge arc
+        const minTick = -80; // the min degree of the gauge arc
 
+        // Calculate arrow rotation degree
+        // Calculates the arrow rotation degree by normalising the current cig num between the maximum arc range
+        const rotationDegree = normaliseVal(parseInt(this.props.currentCiggNum), this.props.ciggMinMax.min, this.props.ciggMinMax.max, minTick, maxTick);
+
+        // Rotate arrow
         const arrowElement = document.querySelector('svg#svgMain #svgGroup #gauge #arrow')
-        console.log(arrowElement);
-        if (arrowElement !== null) arrowElement.setAttribute('transform', `rotate(${arrowDegree})`) //rotates the arrow
+        if (arrowElement !== null) arrowElement.setAttribute('transform', `rotate(${rotationDegree})`)
     }
 
     render() {

@@ -1,13 +1,13 @@
 import {Component} from "preact";
 import GaugeSVG from '../gauge-svg/gauge-svg';
-import {objectAttrSum} from "../../utils/helpers";
+import {objectMinMax} from "../../utils/helpers";
 
 export default class CitySelector extends Component {
     constructor(props) {
         super(props);
         this.state = {
             selectedCity: {},
-            ciggSum: objectAttrSum(this.props.citiesData, 'cigg')
+            ciggMinMax: objectMinMax(this.props.citiesData, 'cigg')
         }
     }
 
@@ -59,7 +59,7 @@ export default class CitySelector extends Component {
                 </div>
                 <p className='city-selector__details--aqi'>{this.state.selectedCity.aqi}</p>
                 <GaugeSVG
-                    totalCiggSum={this.state.ciggSum}
+                    ciggMinMax={this.state.ciggMinMax}
                     currentCiggNum={this.state.selectedCity.cigg}/>
             </div>
             <span className='city-selector__footnote'>{`*${this.props.langData['compare-tabs_1_method']}`}</span>
