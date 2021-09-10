@@ -1,6 +1,7 @@
 import {Component} from 'preact';
 import {normaliseVal} from "../../utils/helpers";
 
+
 export default class GaugeSvg extends Component {
     constructor(props) {
         super(props);
@@ -19,11 +20,14 @@ export default class GaugeSvg extends Component {
 
         // Calculate arrow rotation degree
         // Calculates the arrow rotation degree by normalising the current cig num between the maximum arc range
-        const rotationDegree = normaliseVal(parseInt(this.props.currentCiggNum), this.props.ciggMinMax.min, this.props.ciggMinMax.max, minTick, maxTick);
+        const rotationDegree = normaliseVal(parseInt(this.props.currentCiggNum, 0), this.props.ciggMinMax.min, this.props.ciggMinMax.max, minTick, maxTick);
 
         // Rotate arrow
         const arrowElement = document.querySelector('svg#svgMain #svgGroup #gauge #arrow')
-        if (arrowElement !== null) arrowElement.style = `transform: rotate(${rotationDegree}deg)`;
+        if (arrowElement !== null) {
+            arrowElement.style = `transform: rotate(${rotationDegree}deg);
+              transition: ${(this.props.animated) ? 'all 0.5s' : 'none'};`;
+        }
     }
 
     render() {
@@ -67,8 +71,7 @@ export default class GaugeSvg extends Component {
                     </g>
                 </g>
             </svg>
-            <span className="gauge-svg__explainer">Representation of the number of cigarettes smoked compared to other
-                cities</span>
+            <span className="gauge-svg__explainer">Representation of the number of cigarettes smoked compared to the other listed cities</span>
         </div>
     }
 }

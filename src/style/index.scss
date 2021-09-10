@@ -3,6 +3,7 @@
 @import "../components/article/article";
 @import "../components/city-selector/city-selector";
 @import "../components/gauge-svg/gauge-svg";
+@import "../components/animation-toggle/animation-toggle";
 
 html, body {
   height: 100%;
@@ -25,3 +26,8 @@ html, body {
   height: 100%;
 }
 
+// Globally-used classes
+.no-animation {
+  opacity: 1;
+  transition: none !important;
+}
