@@ -12,6 +12,7 @@ function getCitiesData(data) {
             cities[cityId][cityProp] = data[key];
         }
     });
+
     return cities;
 }
 
@@ -23,39 +24,26 @@ function getParasData(data) {
             paras.push(data[key])
         }
     });
+
     return paras;
 }
 
-function normaliseVal(oldValue, oldMin, oldMax, newMin, newMax) {
+function normaliseVal(inputValue, oldMin, oldMax, newMin, newMax) {
     const oldRange = (oldMax - oldMin)
     const newRange = (newMax - newMin)
-    const newValue = (((oldValue - oldMin) * newRange) / oldRange) + newMin
 
-    return newValue;
+    return (((inputValue - oldMin) * newRange) / oldRange) + newMin;
 }
 
-// function objectAttrSum(object, key) {
-//     console.log(object[0][key]);
-//     return object.reduce((a, b) => a + (parseInt(b[key]) || 0), 0);
-// }
-
 function objectMinMax(array, key) {
-    const max = Math.max.apply(Math, array.map((object) => { return object[key]; }));
-    const min = Math.min.apply(Math, array.map((object) => { return object[key]; }));
-
-    console.log('min', min);
-    console.log('max', max);
+    const max = Math.max(...array.map((object) => {
+        return object[key];
+    }));
+    const min = Math.min(...array.map((object) => {
+        return object[key];
+    }));
 
     return {min, max}
 }
-
-// function normaliseVal(inputVal, rangeMin, rangeMax, normMin, normMax) {
-//     const percent = (inputVal - rangeMin) / (rangeMax - rangeMin);
-//     const output = percent * (normMax - normMin) + normMin;
-//
-//     return output
-// }
-
-
 
 export {getCitiesData, getParasData, objectMinMax, normaliseVal};

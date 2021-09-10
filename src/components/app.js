@@ -3,6 +3,9 @@ import defaultLangData from '../assets/lang/english.json'
 import {getCitiesData} from "../utils/helpers";
 import Hero from "./hero/hero";
 import Article from "./article/article";
+import AnimationToggle from "./animation-toggle/animation-toggle";
+import {Provider} from "redux-zero/preact"
+import store from "../utils/store/store";
 
 export default class App extends Component {
     constructor() {
@@ -31,18 +34,22 @@ export default class App extends Component {
     }
 
     render() {
-        return <div className="app-container">
-            <div id="app">
-                <Hero langData={this.state.langData} />
-                <select onChange={(event) => this.changeLanguage(event)} value={this.state.currentLanguage}>
-                    {
-                        this.state.languages.map(language => {
-                            return <option key={language} value={language.toLowerCase()}>{language}</option>
-                        })
-                    }
-                </select>
-                <Article langData = {this.state.langData} citiesData={this.state.citiesData} />
+        return <Provider store={store}>
+            <div className="app-container">
+                <div id="app">
+                    <Hero langData={this.state.langData}/>
+                    <AnimationToggle/>
+                    <select onChange={(event) => this.changeLanguage(event)} value={this.state.currentLanguage}>
+                        {
+                            this.state.languages.map(language => {
+                                return <option key={language} value={language.toLowerCase()}>{language}</option>
+                            })
+                        }
+                    </select>
+                    <Article
+                        langData={this.state.langData} citiesData={this.state.citiesData}/>
+                </div>
             </div>
-        </div>
+        </Provider>
     }
 }

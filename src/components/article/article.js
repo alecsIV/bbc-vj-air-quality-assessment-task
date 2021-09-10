@@ -29,7 +29,8 @@ export default class Article extends Component {
                         }
                     })}
                 </div>
-                <CitySelector langData={this.props.langData} citiesData={this.props.citiesData}/>
+                <CitySelector
+                    langData={this.props.langData} citiesData={this.props.citiesData}/>
                 <div className="article__section">
                     {getParasData(this.props.langData).map((par, i) => {
                         if (i > 4) { // number of paragraphs after interactive
