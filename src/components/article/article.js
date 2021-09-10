@@ -29,12 +29,15 @@ export default class Article extends Component {
                         }
                     })}
                 </div>
-                <CitySelector langData={this.props.langData} citiesData={this.props.citiesData}/>
-                {getParasData(this.props.langData).map((par, i) => {
-                    if (i > 4) { // number of paragraphs after interactive
-                        return <p key={i}>{par}</p>
-                    }
-                })}
+                <CitySelector
+                    langData={this.props.langData} citiesData={this.props.citiesData}/>
+                <div className="article__section">
+                    {getParasData(this.props.langData).map((par, i) => {
+                        if (i > 4) { // number of paragraphs after interactive
+                            return <p key={i}>{par}</p>
+                        }
+                    })}
+                </div>
             </div>
         </div>
     }

@@ -1,5 +1,5 @@
 .article {
-  &__details {
+  &__details, &__section {
     max-width: $middle-column-width;
     //text-align: right;
     margin: 0 auto;
