@@ -7,7 +7,11 @@ import {Connect} from "redux-zero/preact";
 export default class Article extends Component {
     constructor(props) {
         super(props);
-        this.mapToProps = ({languageData, selectedLanguage, citiesData}) => ({languageData, selectedLanguage, citiesData})
+        this.mapToProps = ({languageData, selectedLanguage, citiesData}) => ({
+            languageData,
+            selectedLanguage,
+            citiesData
+        })
     }
 
 
@@ -33,7 +37,8 @@ export default class Article extends Component {
                                 }
                             })}
                         </div>
-                        <CitySelector citiesData={citiesData[selectedLanguage]} languageData={languageData[selectedLanguage]}/>
+                        <CitySelector
+                            citiesData={citiesData[selectedLanguage]} languageData={languageData[selectedLanguage]}/>
                         <div className="article__section">
                             {getParasData(languageData[selectedLanguage]).map((par, i) => {
                                 if (i > 4) { // number of paragraphs after interactive

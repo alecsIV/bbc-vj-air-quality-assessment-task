@@ -17,29 +17,6 @@ export default class App extends Component {
         this.mapToProps = ({selectedLanguage}) => ({selectedLanguage})
     }
 
-    // changeLanguage = (event) => {
-    //     this.setState({currentLanguage: event.target.value});
-    //     this.refreshData()
-    // };
-
-    refreshData = () => {
-        console.log(this.state.selectedLanguage);
-        // Once language is changed, data needs ot be refreshed
-        import(`../assets/lang/${this.state.selectedLanguage}.json`)
-            .then((langData) => {
-                this.setState({langData})
-                this.setState({citiesData: getCitiesData(langData)});
-            });
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log('here');
-        if (nextProps.selectedLanguage !== this.mapToProps.selectedLanguage) {
-            console.log('changed');
-            this.refreshData()
-        }
-    }
-
     render() {
         return <Provider store={store}>
             <div className="app-container">
