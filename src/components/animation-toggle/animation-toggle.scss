@@ -1,5 +1,8 @@
 /* Source: https://www.w3schools.com/howto/howto_css_switch.asp */
 .animation-toggle {
+  display: flex;
+  align-items: center;
+
   /* The switch - the box around the slider */
   &__switch {
     position: relative;
