@@ -22,6 +22,12 @@ export default class CitySelector extends Component {
         // Assign newly activated button
         const cityButton = document.querySelector(`#city-selector__button--${selectedCity.name}`);
         if (cityButton !== null) cityButton.classList.toggle('active')
+
+        // const ciggImages = document.querySelectorAll('.city-selector__details__cigg--image');
+        // if (ciggImages !== null) ciggImages.map((image)=> {
+        //     image.classList.remove('delay-display')
+        //     image.classList.add('delay-display')
+        // });
     }
 
     getCigarettesImages() {
@@ -29,15 +35,17 @@ export default class CitySelector extends Component {
 
         for (let i = 0; i < this.state.selectedCity.cigg; i++) {
             images.push(<img
-                className='city-selector__details__cigg--image' src="../../assets/img/ciggrette_icon.png"
-                alt="Cigarette"/>)
+                className={`city-selector__details__cigg--image delay-display`}
+                src="../../assets/img/ciggrette_icon.png"
+                alt="Cigarette" style={{animationDelay: `${0.5 * i}s`}}/>);
+
         }
         return images;
     }
 
 
     render() {
-        return <div className='city-selector-interactive'>
+        return <div className='city-selector'>
             <div className="city-selector__options">
                 {
                     this.props.citiesData.map(city => {
@@ -48,7 +56,7 @@ export default class CitySelector extends Component {
                 }
             </div>
             <div
-                className={`city-selector__details ${(Object.keys(this.state.selectedCity).length > 1) ? '' : 'hidden'}`}
+                className={`city-selector__details ${(Object.keys(this.state.selectedCity).length > 1) ? '' : 'collapsed'}`}
                 ref={this.detailsRef}>
                 <h1 className='city-selector__details--name'>{this.state.selectedCity.name}</h1>
                 <div className="city-selector__details__cigg">
@@ -57,12 +65,12 @@ export default class CitySelector extends Component {
                         {this.getCigarettesImages()}
                     </div>
                 </div>
+                <span className='city-selector__footnote'>{`*${this.props.langData['compare-tabs_1_method']}`}</span>
                 <p className='city-selector__details--aqi'>{this.state.selectedCity.aqi}</p>
                 <GaugeSVG
                     ciggMinMax={this.state.ciggMinMax}
                     currentCiggNum={this.state.selectedCity.cigg}/>
             </div>
-            <span className='city-selector__footnote'>{`*${this.props.langData['compare-tabs_1_method']}`}</span>
         </div>
     }
 

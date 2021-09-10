@@ -1,9 +1,15 @@
-.city-selector-interactive {
-  max-width: $middle-column-width;
-  margin: 0 auto;
-  padding: 16px 32px;
+@keyframes fade-in{
+  100% {
+    opacity: 1;
+  }
 }
+
 .city-selector {
+  max-width: $middle-column-width;
+  margin: 2rem auto;
+  padding: 32px;
+  border-bottom: 2px solid #4e4e4e;
+
   &__button {
     border: 1px solid #444444;
     background-color: #fafafa;
@@ -35,7 +41,13 @@
       &--image {
         width: 10%;
         min-width: 30px;
+
+        &.delay-display {
+          opacity: 0;
+          animation: fade-in .5s forwards;
+        }
       }
+
     }
 
     &--aqi {
@@ -43,7 +55,7 @@
       text-align: center;
     }
 
-    &.hidden {
+    &.collapsed {
       display: none;
     }
   }
