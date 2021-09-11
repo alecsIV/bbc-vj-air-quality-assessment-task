@@ -1,6 +1,6 @@
 import {Component} from "preact";
 import GaugeSVG from '../gauge-svg/gauge-svg';
-import {objectMinMax} from "../../utils/helpers";
+import {isIE11, objectMinMax} from "../../utils/helpers";
 import {Connect} from "redux-zero/preact";
 
 export default class CitySelector extends Component {
@@ -69,11 +69,14 @@ export default class CitySelector extends Component {
                         <p className='city-selector__details--aqi'>{this.state.selectedCity.aqi}</p>
                         <span
                             className='city-selector__footnote'>{`*${this.props.languageData['compare-tabs_1_method']}`}</span>
-                        <GaugeSVG
-                            animated={animated}
-                            ciggMinMax={this.state.ciggMinMax}
-                            currentCiggNum={this.state.selectedCity.cigg}
-                        />
+                        {()=>{
+                            if(!isIE11()) return  <GaugeSVG
+                            // Gauge is not shown in IE 11 for the purposes of this assessment
+                                animated={animated}
+                                ciggMinMax={this.state.ciggMinMax}
+                                currentCiggNum={this.state.selectedCity.cigg}
+                            />
+                        }}
                     </div>
                 </div>
             )}

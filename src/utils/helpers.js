@@ -1,3 +1,7 @@
+function isIE11(){
+    return !!window.MSInputMethodContext && !!document.documentMode;
+}
+
 function getCitiesData(data) {
     let cities = [];
 
@@ -46,4 +50,4 @@ function objectMinMax(array, key) {
     return {min, max}
 }
 
-export {getCitiesData, getParasData, objectMinMax, normaliseVal};
+export {isIE11, getCitiesData, getParasData, objectMinMax, normaliseVal};
