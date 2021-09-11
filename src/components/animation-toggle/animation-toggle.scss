@@ -2,6 +2,9 @@
 .animation-toggle {
   display: flex;
   align-items: center;
+  max-width: 40rem;
+  padding: 0 32px;
+  margin: 0 auto;
 
   /* The switch - the box around the slider */
   &__switch {

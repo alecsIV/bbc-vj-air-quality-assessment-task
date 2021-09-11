@@ -20,8 +20,6 @@ export default class App extends Component {
             <div className="app-container">
                 <div id="app">
                     <Hero/>
-                    <AnimationToggle/>
-                    <LanguageSwitcher/>
                     <Article/>
                 </div>
             </div>
