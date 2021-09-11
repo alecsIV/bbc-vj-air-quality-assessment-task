@@ -1,6 +1,6 @@
 import {Component} from "preact";
 import GaugeSVG from '../gauge-svg/gauge-svg';
-import {objectMinMax} from "../../utils/helpers";
+import {isIE11, objectMinMax} from "../../utils/helpers";
 import {Connect} from "redux-zero/preact";
 
 export default class CitySelector extends Component {
@@ -19,11 +19,11 @@ export default class CitySelector extends Component {
 
         // Disable currently active button
         const cityButtonActive = document.querySelector(`.active`);
-        if (cityButtonActive !== null) cityButtonActive.classList.toggle('active');
+        if (cityButtonActive !== null) cityButtonActive.classList.remove('active');
 
         // Assign newly activated button
         const cityButton = document.querySelector(`#city-selector__button--${selectedCity.name}`);
-        if (cityButton !== null) cityButton.classList.toggle('active')
+        if (cityButton !== null) cityButton.classList.add('active')
     }
 
     getCigarettesImages(animated) {
@@ -42,6 +42,7 @@ export default class CitySelector extends Component {
 
 
     render() {
+        console.log(this.state.selectedCity);
         return <Connect mapToProps={this.mapToProps}>
             {({animated}) => (
                 <div className='city-selector'>
@@ -68,15 +69,16 @@ export default class CitySelector extends Component {
                         <p className='city-selector__details--aqi'>{this.state.selectedCity.aqi}</p>
                         <span
                             className='city-selector__footnote'>{`*${this.props.languageData['compare-tabs_1_method']}`}</span>
-                        <GaugeSVG
-                            animated={animated}
-                            ciggMinMax={this.state.ciggMinMax}
-                            currentCiggNum={this.state.selectedCity.cigg}
-                        />
+                        { // Gauge is not shown in IE 11 for the purposes of this assessment
+                            (!isIE11())? <GaugeSVG
+                                animated={animated}
+                                ciggMinMax={this.state.ciggMinMax}
+                                currentCiggNum={this.state.selectedCity.cigg}
+                            /> : ''
+                        }
                     </div>
                 </div>
             )}
         </Connect>
     }
-
 }

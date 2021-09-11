@@ -2,7 +2,15 @@
   "env": {
     "test": {
       "presets": [
-        ["preact-cli/babel", { "modules": "commonjs" }]
+        [
+          "preact-cli/babel",
+          {
+            "modules": "commonjs",
+            "targets": {
+              "browsers": "last 2 versions, > 0.5%, ie >= 11"
+            }
+          }
+        ]
       ]
     }
   }
