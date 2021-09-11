@@ -34,7 +34,7 @@ export default class CitySelector extends Component {
             images.push(<img
                 className={`city-selector__details__cigg--image ${(animated) ? 'delay-display' : 'no-animation'}`}
                 src="../../assets/img/ciggrette_icon.png"
-                alt="Cigarette" style={{animationDelay: `${0.5 * i}s`}} />);
+                alt="Cigarette" style={{animationDelay: `${0.5 * i}s`}}/>);
 
         }
         return images;
@@ -67,11 +67,12 @@ export default class CitySelector extends Component {
                         </div>
                         <p className='city-selector__details--aqi'>{this.state.selectedCity.aqi}</p>
                         <span
-                            className='city-selector__footnote'>{`*${this.props.langData['compare-tabs_1_method']}`}</span>
+                            className='city-selector__footnote'>{`*${this.props.languageData['compare-tabs_1_method']}`}</span>
                         <GaugeSVG
                             animated={animated}
                             ciggMinMax={this.state.ciggMinMax}
-                            currentCiggNum={this.state.selectedCity.cigg}/>
+                            currentCiggNum={this.state.selectedCity.cigg}
+                        />
                     </div>
                 </div>
             )}

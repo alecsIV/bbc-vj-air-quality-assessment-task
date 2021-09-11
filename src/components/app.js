@@ -4,50 +4,27 @@ import {getCitiesData} from "../utils/helpers";
 import Hero from "./hero/hero";
 import Article from "./article/article";
 import AnimationToggle from "./animation-toggle/animation-toggle";
-import {Provider} from "redux-zero/preact"
+import {Provider, Connect} from "redux-zero/preact"
 import store from "../utils/store/store";
+import LanguageSwitcher from "./language-switcher/language-switcher";
 
 export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            currentLanguage: 'english',
             languages: ['English', 'Hindi'],
-            langData: defaultLangData,
-            citiesData: getCitiesData(defaultLangData)
         }
-    }
-
-    changeLanguage = (event) => {
-        // Call this function to change language
-        this.setState({currentLanguage: event.target.value});
-        this.refreshData()
-    };
-
-    refreshData = () => {
-        // Once language is changed, data needs ot be refreshed
-        import(`../assets/lang/${this.state.currentLanguage}.json`)
-            .then((langData) => {
-                this.setState({langData})
-                this.setState({citiesData: getCitiesData(langData)});
-            });
+        this.mapToProps = ({selectedLanguage}) => ({selectedLanguage})
     }
 
     render() {
         return <Provider store={store}>
             <div className="app-container">
                 <div id="app">
-                    <Hero langData={this.state.langData}/>
+                    <Hero/>
                     <AnimationToggle/>
-                    <select onChange={(event) => this.changeLanguage(event)} value={this.state.currentLanguage}>
-                        {
-                            this.state.languages.map(language => {
-                                return <option key={language} value={language.toLowerCase()}>{language}</option>
-                            })
-                        }
-                    </select>
-                    <Article
-                        langData={this.state.langData} citiesData={this.state.citiesData}/>
+                    <LanguageSwitcher/>
+                    <Article/>
                 </div>
             </div>
         </Provider>
