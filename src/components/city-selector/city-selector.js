@@ -19,11 +19,11 @@ export default class CitySelector extends Component {
 
         // Disable currently active button
         const cityButtonActive = document.querySelector(`.active`);
-        if (cityButtonActive !== null) cityButtonActive.classList.toggle('active');
+        if (cityButtonActive !== null) cityButtonActive.classList.remove('active');
 
         // Assign newly activated button
         const cityButton = document.querySelector(`#city-selector__button--${selectedCity.name}`);
-        if (cityButton !== null) cityButton.classList.toggle('active')
+        if (cityButton !== null) cityButton.classList.add('active')
     }
 
     getCigarettesImages(animated) {
@@ -42,6 +42,7 @@ export default class CitySelector extends Component {
 
 
     render() {
+        console.log(this.state.selectedCity);
         return <Connect mapToProps={this.mapToProps}>
             {({animated}) => (
                 <div className='city-selector'>

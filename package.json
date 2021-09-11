@@ -5,8 +5,9 @@
   "license": "MIT",
   "scripts": {
     "build": "preact build --dest dist",
-    "serve": "sirv dist --port 8080 --cors --single",
+    "serve": "sirv dist --port 8080 --cors --single --host",
     "start": "preact watch",
+    "start:prod": "npm run build && npm run serve",
     "lint": "eslint src"
   },
   "eslintConfig": {
@@ -16,6 +17,11 @@
     ]
   },
   "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-preact": "^2.0.0",
+    "core-js": "^3.17.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-preact-pure": "^2.0.0",
     "eslint": "^6.0.1",
