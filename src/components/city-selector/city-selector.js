@@ -69,18 +69,16 @@ export default class CitySelector extends Component {
                         <p className='city-selector__details--aqi'>{this.state.selectedCity.aqi}</p>
                         <span
                             className='city-selector__footnote'>{`*${this.props.languageData['compare-tabs_1_method']}`}</span>
-                        {()=>{
-                            if(!isIE11()) return  <GaugeSVG
-                            // Gauge is not shown in IE 11 for the purposes of this assessment
+                        { // Gauge is not shown in IE 11 for the purposes of this assessment
+                            (!isIE11())? <GaugeSVG
                                 animated={animated}
                                 ciggMinMax={this.state.ciggMinMax}
                                 currentCiggNum={this.state.selectedCity.cigg}
-                            />
-                        }}
+                            /> : ''
+                        }
                     </div>
                 </div>
             )}
         </Connect>
     }
-
 }
