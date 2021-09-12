@@ -1,6 +1,5 @@
 //Screen sizes
 $max-width: 80rem; // 1280px
-$desktop-screen-l: 80rem; // 1280px
 $desktop-screen: 64rem; // 1024px
 $tablet-screen-l: 60rem; // 960px
 $tablet-screen: 48rem; // 768px
@@ -13,3 +12,18 @@ $middle-column-width: 40rem;
 $desktop-frame-padding: 3.125rem;
 $mobile-frame-padding: 1.5rem;
 $navbar-h: 6.250em;
+
+// Pre-defined classes
+.interactive-huge-text{
+  font-size: 72px;
+  @media(max-width: $mobile-screen-l){
+    font-size: 42px;
+  }
+}
+.interactive-big-text{
+  font-size: 42px;
+  @media(max-width: $mobile-screen-l){
+    font-size: 32px;
+    font-weight: bold;
+  }
+}

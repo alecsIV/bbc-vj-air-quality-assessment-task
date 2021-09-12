@@ -10,6 +10,12 @@
   padding: 32px;
   border-bottom: 2px solid #4e4e4e;
 
+  &__options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   &__button {
     border: 1px solid #444444;
     background-color: #fafafa;
@@ -28,7 +34,7 @@
   &__details {
 
     &--name {
-      font-size: 42px;
+      @extend .interactive-big-text;
       text-align: center;
     }
 
@@ -44,7 +50,7 @@
       }
 
       &--text {
-        font-size: 72px;
+        @extend .interactive-huge-text;
       }
 
       &--text, &--image-container {
@@ -61,6 +67,10 @@
         width: 10%;
         min-width: 30px;
 
+        @media (max-width: $mobile-screen-l) {
+          min-width: 20px;
+        }
+
         &.delay-display {
           opacity: 0;
           animation: fade-in .5s forwards;
@@ -69,7 +79,7 @@
     }
 
     &--aqi {
-      font-size: 72px;
+      @extend .interactive-huge-text;
       text-align: center;
       margin: 1rem auto;
       width: fit-content;
