@@ -9,6 +9,7 @@ import LanguageSwitcher from "../language-switcher/language-switcher";
 export default class Article extends Component {
     constructor(props) {
         super(props);
+        // Required to map props for redux-zero state storage
         this.mapToProps = ({languageData, selectedLanguage, citiesData}) => ({
             languageData,
             selectedLanguage,

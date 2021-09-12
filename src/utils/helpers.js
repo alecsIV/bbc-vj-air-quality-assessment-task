@@ -1,3 +1,5 @@
+// This file contains reusable helper functions that are often bulky and not very user friendly to help with the code readability of the other files
+
 // Check if browser is IE11
 function isIE11() {
     // IF check needed for the pre-rendered html files

@@ -10,9 +10,11 @@ export default class CitySelector extends Component {
             selectedCity: {},
             ciggMinMax: objectMinMax(this.props.citiesData, 'cigg'),
         }
+        // Required to map props for redux-zero state storage
         this.mapToProps = ({animated}) => ({animated});
     }
 
+    // Change the state of the selected city and show details about it
     displayCityInfo(selectedCity) {
         // Set the state for the selected city
         this.setState({selectedCity});
@@ -26,6 +28,7 @@ export default class CitySelector extends Component {
         if (cityButton !== null) cityButton.classList.add('active')
     }
 
+    // Fade in the cigarette images 1 by 1
     getCigarettesImages(animated) {
         let images = []
 
@@ -57,7 +60,7 @@ export default class CitySelector extends Component {
                     </div>
                     <div
                         className={`city-selector__details ${(Object.keys(this.state.selectedCity).length > 1) ? '' : 'collapsed'}`}
-                        ref={this.detailsRef}>
+                    >
                         <h1 className='city-selector__details--name'>{this.state.selectedCity.name}</h1>
                         <div className="city-selector__details__cigg">
                             <p

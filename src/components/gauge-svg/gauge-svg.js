@@ -25,7 +25,8 @@ export default class GaugeSvg extends Component {
         // Rotate arrow
         const arrowElement = document.querySelector('svg#svgMain #svgGroup #gauge #arrow')
         if (arrowElement !== null) {
-            arrowElement.setAttribute('style', `transform: rotate(${rotationDegree}deg);
+            // IE11 throws error if style is assigned rather than set
+            arrowElement.setAttribute('style', `transform: rotate(${rotationDegree}deg); 
               transition: ${(this.props.animated) ? 'all 0.5s' : 'none'};`);
         }
     }

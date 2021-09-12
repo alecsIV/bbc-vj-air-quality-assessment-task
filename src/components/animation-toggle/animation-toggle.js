@@ -6,6 +6,7 @@ import actions from "../../utils/store/actions";
 export default class AnimationToggle extends Component {
     constructor() {
         super();
+        // Required to map props for redux-zero state storage
         this.mapToProps = ({animated}) => ({animated});
     }
 

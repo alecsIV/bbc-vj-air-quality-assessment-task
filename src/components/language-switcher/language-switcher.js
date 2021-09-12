@@ -8,6 +8,7 @@ export default class LanguageSwitcher extends Component {
         this.state = {
             languages: ['English', 'Hindi']
         }
+        // Required to map props for redux-zero state storage
         this.mapToProps = ({selectedLanguage}) => ({selectedLanguage});
     }
 

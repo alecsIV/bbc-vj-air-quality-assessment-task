@@ -1,28 +1,21 @@
 //Screen sizes
-$max-width: 80rem; // 1280px
-$desktop-screen: 64rem; // 1024px
-$tablet-screen-l: 60rem; // 960px
-$tablet-screen: 48rem; // 768px
 $mobile-screen-l: 30rem; // 480px
-$mobile-screen-m: 26.563rem; // 425px
-$mobile-screen-s: 20rem; // 320px
 
 // Dimensions
 $middle-column-width: 40rem;
-$desktop-frame-padding: 3.125rem;
-$mobile-frame-padding: 1.5rem;
-$navbar-h: 6.250em;
+$frame-padding: 0 32px;
 
 // Pre-defined classes
-.interactive-huge-text{
+.interactive-huge-text {
   font-size: 72px;
-  @media(max-width: $mobile-screen-l){
+  @media(max-width: $mobile-screen-l) {
     font-size: 42px;
   }
 }
-.interactive-big-text{
+
+.interactive-big-text {
   font-size: 42px;
-  @media(max-width: $mobile-screen-l){
+  @media(max-width: $mobile-screen-l) {
     font-size: 32px;
     font-weight: bold;
   }

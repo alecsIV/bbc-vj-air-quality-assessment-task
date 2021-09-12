@@ -4,6 +4,7 @@ import {Connect} from "redux-zero/preact";
 export default class Hero extends Component {
     constructor() {
         super();
+        // Required to map props for redux-zero state storage
         this.mapToProps = ({languageData, selectedLanguage}) => ({languageData, selectedLanguage})
     }
 
