@@ -38,9 +38,7 @@ Nice to have:
 - [x] A version in hindi (data also supplied in separate JSON file)
 - [x] Test cases for your code. (located in ``./features/feature-file.feature``)
 
-## Additional
-As an addition to the project a smoked-cigarettes gauge indicator was added (not part of the requirements) to provide more insight from the data.
+## Creative additions
+As an addition to the project, a 'smoked-cigarettes gauge indicator' was added (not part of the requirements) to provide more insight from the provided data.
 
-## Why Preact?
-The framework was chosen as it provides pre-rendering of the HTML, so that it gets served to the client in very little time. Additionally, it is a relatively light library and takes advantage of modern framework paradigms.
 
