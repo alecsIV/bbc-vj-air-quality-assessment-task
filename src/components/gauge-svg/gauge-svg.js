@@ -32,7 +32,7 @@ export default class GaugeSvg extends Component {
 
     render() {
         return <div className="gauge-svg__container">
-            <svg viewBox='0 0 382 261' width="auto" height="261" id="svgMain" fill="none" xmlns="http://www.w3.org/2000/svg" >
+            <svg viewBox='0 0 382 261' width="100%" height="261" id="svgMain" fill="none" xmlns="http://www.w3.org/2000/svg" >
                 <path fill="#E5E5E5" d="M0 0h382v261H0z"/>
                 <g id="svgGroup">
                     <path transform="translate(-59 -120)" fill="#FAFAFA" d="M0 0h500v500H0z"/>
@@ -71,7 +71,7 @@ export default class GaugeSvg extends Component {
                     </g>
                 </g>
             </svg>
-            <span className="gauge-svg__explainer">Representation of the number of cigarettes smoked compared to the other listed cities</span>
+            <span className="gauge-svg__explainer">Representation of the level of cigarettes smoked compared to the other listed cities</span>
         </div>
     }
 }

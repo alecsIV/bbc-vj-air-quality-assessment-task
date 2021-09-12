@@ -36,6 +36,7 @@
     &--name {
       @extend .interactive-big-text;
       text-align: center;
+      overflow-wrap: break-word;
     }
 
     &__cigg {
