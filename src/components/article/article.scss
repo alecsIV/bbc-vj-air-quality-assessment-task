@@ -1,12 +1,22 @@
 .article {
-  &__details, &__section {
+  &__details__container, &__section {
     max-width: $middle-column-width;
-    //text-align: right;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: $frame-padding;
+  }
 
+  &__details{
+    display: flex;
+    flex-direction: column;
+    &__container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
     & > span {
       display: block;
+      margin: 0.25rem 0;
     }
   }
 }

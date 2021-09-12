@@ -8,11 +8,13 @@ export default class CitySelector extends Component {
         super(props);
         this.state = {
             selectedCity: {},
-            ciggMinMax: objectMinMax(this.props.citiesData, 'cigg')
+            ciggMinMax: objectMinMax(this.props.citiesData, 'cigg'),
         }
+        // Required to map props for redux-zero state storage
         this.mapToProps = ({animated}) => ({animated});
     }
 
+    // Change the state of the selected city and show details about it
     displayCityInfo(selectedCity) {
         // Set the state for the selected city
         this.setState({selectedCity});
@@ -26,6 +28,7 @@ export default class CitySelector extends Component {
         if (cityButton !== null) cityButton.classList.add('active')
     }
 
+    // Fade in the cigarette images 1 by 1
     getCigarettesImages(animated) {
         let images = []
 
@@ -34,7 +37,7 @@ export default class CitySelector extends Component {
             images.push(<img
                 className={`city-selector__details__cigg--image ${(animated) ? 'delay-display' : 'no-animation'}`}
                 src="../../assets/img/ciggrette_icon.png"
-                alt="Cigarette" style={{animationDelay: `${0.5 * i}s`}}/>);
+                alt="Cigarette" style={{animationDelay: `${0.5 * i}s`}} />);
 
         }
         return images;
@@ -42,7 +45,6 @@ export default class CitySelector extends Component {
 
 
     render() {
-        console.log(this.state.selectedCity);
         return <Connect mapToProps={this.mapToProps}>
             {({animated}) => (
                 <div className='city-selector'>
@@ -58,10 +60,13 @@ export default class CitySelector extends Component {
                     </div>
                     <div
                         className={`city-selector__details ${(Object.keys(this.state.selectedCity).length > 1) ? '' : 'collapsed'}`}
-                        ref={this.detailsRef}>
+                    >
                         <h1 className='city-selector__details--name'>{this.state.selectedCity.name}</h1>
                         <div className="city-selector__details__cigg">
-                            <p className='city-selector__details__cigg--text'>{this.state.selectedCity.cigg}*</p>
+                            <p
+                                className={`city-selector__details__cigg--text
+                                ${(parseInt(this.state.selectedCity.cigg, 0) === 0) ? 'city-selector__details__cigg--zero-text' : ''}`}>{this.state.selectedCity.cigg}*
+                            </p>
                             <div className="city-selector__details__cigg--image-container">
                                 {this.getCigarettesImages(animated)}
                             </div>
@@ -70,7 +75,7 @@ export default class CitySelector extends Component {
                         <span
                             className='city-selector__footnote'>{`*${this.props.languageData['compare-tabs_1_method']}`}</span>
                         { // Gauge is not shown in IE 11 for the purposes of this assessment
-                            (!isIE11())? <GaugeSVG
+                            (!isIE11()) ? <GaugeSVG
                                 animated={animated}
                                 ciggMinMax={this.state.ciggMinMax}
                                 currentCiggNum={this.state.selectedCity.cigg}

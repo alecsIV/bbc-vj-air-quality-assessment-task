@@ -1,10 +1,8 @@
 import {h, Component} from 'preact';
 import Hero from "./hero/hero";
 import Article from "./article/article";
-import AnimationToggle from "./animation-toggle/animation-toggle";
 import {Provider} from "redux-zero/preact"
 import store from "../utils/store/store";
-import LanguageSwitcher from "./language-switcher/language-switcher";
 
 export default class App extends Component {
     constructor() {
@@ -12,6 +10,7 @@ export default class App extends Component {
         this.state = {
             languages: ['English', 'Hindi'],
         }
+        // Required to map props for redux-zero state storage
         this.mapToProps = ({selectedLanguage}) => ({selectedLanguage})
     }
 
@@ -19,10 +18,9 @@ export default class App extends Component {
         return <Provider store={store}>
             <div className="app-container">
                 <div id="app">
-                    <Hero/>
-                    <AnimationToggle/>
-                    <LanguageSwitcher/>
-                    <Article/>
+                    <Hero />
+                    <noscript>Please update your browser to be able to use the interactive content.</noscript>
+                    <Article />
                 </div>
             </div>
         </Provider>

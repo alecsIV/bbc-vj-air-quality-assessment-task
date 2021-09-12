@@ -8,6 +8,7 @@ export default class LanguageSwitcher extends Component {
         this.state = {
             languages: ['English', 'Hindi']
         }
+        // Required to map props for redux-zero state storage
         this.mapToProps = ({selectedLanguage}) => ({selectedLanguage});
     }
 
@@ -15,15 +16,13 @@ export default class LanguageSwitcher extends Component {
     render() {
         return <Connect mapToProps={this.mapToProps} actions={actions}>
             {({selectedLanguage, changeLanguage}) => (
-                <div>
-                    <select onChange={(event) => changeLanguage(event.target.value)} value={selectedLanguage}>
+                    <select title="Select language" className="language-switcher" onChange={(event) => changeLanguage(event.target.value)} value={selectedLanguage}>
                         {
                             this.state.languages.map(language => {
                                 return <option key={language} value={language.toLowerCase()}>{language}</option>
                             })
                         }
                     </select>
-                </div>
             )}
         </Connect>
     }
