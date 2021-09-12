@@ -1,0 +1,22 @@
+.article {
+  &__details__container, &__section {
+    max-width: $middle-column-width;
+    margin: 0 auto;
+    padding: $frame-padding;
+  }
+
+  &__details{
+    display: flex;
+    flex-direction: column;
+    &__container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    & > span {
+      display: block;
+      margin: 0.25rem 0;
+    }
+  }
+}

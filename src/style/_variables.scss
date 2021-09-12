@@ -1,0 +1,22 @@
+//Screen sizes
+$mobile-screen-l: 30rem; // 480px
+
+// Dimensions
+$middle-column-width: 40rem;
+$frame-padding: 0 32px;
+
+// Pre-defined classes
+.interactive-huge-text {
+  font-size: 72px;
+  @media(max-width: $mobile-screen-l) {
+    font-size: 42px;
+  }
+}
+
+.interactive-big-text {
+  font-size: 42px;
+  @media(max-width: $mobile-screen-l) {
+    font-size: 32px;
+    font-weight: bold;
+  }
+}
