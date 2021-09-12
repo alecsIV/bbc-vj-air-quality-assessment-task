@@ -1,6 +1,6 @@
 {
-  "name": "bbc-vj-air-quality-assessment-task",
-  "short_name": "bbc-vj-air-quality-assessment-task",
+  "name": "Delhi smog: How many cigarettes did you smoke this week?",
+  "short_name": "Delhi smog",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
