@@ -9,6 +9,9 @@ A BBC News Article with interactive content about how smoking affects the air qu
 # install dependencies
 npm install
 
+# run non-pre-rendered development version
+npm start
+
 # build for production with minification
 # generates ./dist folder
 npm run build
