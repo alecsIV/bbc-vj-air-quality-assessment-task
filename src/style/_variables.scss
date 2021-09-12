@@ -1,7 +1,6 @@
 //Screen sizes
-$max-width: 80rem; // 1440px
-$middle-column-width: 40rem;
-$desktop-screen-l: 80rem; // 1024px
+$max-width: 80rem; // 1280px
+$desktop-screen-l: 80rem; // 1280px
 $desktop-screen: 64rem; // 1024px
 $tablet-screen-l: 60rem; // 960px
 $tablet-screen: 48rem; // 768px
@@ -10,6 +9,7 @@ $mobile-screen-m: 26.563rem; // 425px
 $mobile-screen-s: 20rem; // 320px
 
 // Dimensions
+$middle-column-width: 40rem;
 $desktop-frame-padding: 3.125rem;
 $mobile-frame-padding: 1.5rem;
 $navbar-h: 6.250em;

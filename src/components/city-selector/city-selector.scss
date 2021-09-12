@@ -1,4 +1,4 @@
-@keyframes fade-in{
+@keyframes fade-in {
   100% {
     opacity: 1;
   }
@@ -26,13 +26,21 @@
   }
 
   &__details {
+
+    &--name {
+      font-size: 42px;
+      text-align: center;
+    }
+
     &__cigg {
       display: flex;
       justify-content: center;
       align-items: center;
 
+
       &--image-container {
         max-width: 50%;
+        border-left: 3px dashed #4e4e4e;
       }
 
       &--text {
@@ -43,6 +51,10 @@
         flex-basis: 0;
         flex-grow: 1;
         text-align: center;
+      }
+
+      &--zero-text{
+        flex-grow: 100;
       }
 
       &--image {
@@ -59,7 +71,10 @@
     &--aqi {
       font-size: 72px;
       text-align: center;
-      margin: 1rem 0;
+      margin: 1rem auto;
+      width: fit-content;
+      border: dashed 3px #4e4e4e;
+      padding: 0.5rem 1rem;
     }
 
     &.collapsed {

@@ -8,7 +8,7 @@ export default class CitySelector extends Component {
         super(props);
         this.state = {
             selectedCity: {},
-            ciggMinMax: objectMinMax(this.props.citiesData, 'cigg')
+            ciggMinMax: objectMinMax(this.props.citiesData, 'cigg'),
         }
         this.mapToProps = ({animated}) => ({animated});
     }
@@ -60,7 +60,10 @@ export default class CitySelector extends Component {
                         ref={this.detailsRef}>
                         <h1 className='city-selector__details--name'>{this.state.selectedCity.name}</h1>
                         <div className="city-selector__details__cigg">
-                            <p className='city-selector__details__cigg--text'>{this.state.selectedCity.cigg}*</p>
+                            <p
+                                className={`city-selector__details__cigg--text
+                                ${(parseInt(this.state.selectedCity.cigg, 0) === 0) ? 'city-selector__details__cigg--zero-text' : ''}`}>{this.state.selectedCity.cigg}*
+                            </p>
                             <div className="city-selector__details__cigg--image-container">
                                 {this.getCigarettesImages(animated)}
                             </div>
@@ -69,7 +72,7 @@ export default class CitySelector extends Component {
                         <span
                             className='city-selector__footnote'>{`*${this.props.languageData['compare-tabs_1_method']}`}</span>
                         { // Gauge is not shown in IE 11 for the purposes of this assessment
-                            (!isIE11())? <GaugeSVG
+                            (!isIE11()) ? <GaugeSVG
                                 animated={animated}
                                 ciggMinMax={this.state.ciggMinMax}
                                 currentCiggNum={this.state.selectedCity.cigg}

@@ -32,7 +32,7 @@ export default class GaugeSvg extends Component {
 
     render() {
         return <div className="gauge-svg__container">
-            <svg width="382" height="261" id="svgMain" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox='0 0 382 261' width="auto" height="261" id="svgMain" fill="none" xmlns="http://www.w3.org/2000/svg" >
                 <path fill="#E5E5E5" d="M0 0h382v261H0z"/>
                 <g id="svgGroup">
                     <path transform="translate(-59 -120)" fill="#FAFAFA" d="M0 0h500v500H0z"/>
