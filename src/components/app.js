@@ -19,6 +19,7 @@ export default class App extends Component {
             <div className="app-container">
                 <div id="app">
                     <Hero/>
+                    <noscript>Please update your browser to be able to use the interactive content.</noscript>
                     <Article/>
                 </div>
             </div>
