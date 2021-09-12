@@ -1,5 +1,5 @@
 # bbc-vj-air-quality-assessment-task
-##Description
+## Description
 A BBC News Article with interactive content about how smoking affects the air quality in various Indian cities.
 
 **Browser Compatibility**: IE11 and up.
@@ -18,7 +18,7 @@ npm run build
 npm run serve
 ```
 
-###IE11
+### IE11
 To run in IE, the best approach would be to build the rendered HTML files and serve that production build: 
 ``` bash
 npm run start:prod
