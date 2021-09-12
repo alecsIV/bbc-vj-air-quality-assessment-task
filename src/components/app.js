@@ -18,9 +18,9 @@ export default class App extends Component {
         return <Provider store={store}>
             <div className="app-container">
                 <div id="app">
-                    <Hero/>
+                    <Hero />
                     <noscript>Please update your browser to be able to use the interactive content.</noscript>
-                    <Article/>
+                    <Article />
                 </div>
             </div>
         </Provider>

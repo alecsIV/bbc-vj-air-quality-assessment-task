@@ -16,8 +16,8 @@ export default class AnimationToggle extends Component {
                 return <div className="animation-toggle">
                     <span className='animation-toggle__title'>Animation {`${animated ? 'on' : 'off'}`}</span>
                     <label className="animation-toggle__switch">
-                        <input type="checkbox" checked={animated} onChange={toggle}/>
-                        <span className="animation-toggle__slider"/>
+                        <input type="checkbox" checked={animated} onChange={toggle} />
+                        <span className="animation-toggle__slider" />
                     </label>
                 </div>
             })}

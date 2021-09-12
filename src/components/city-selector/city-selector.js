@@ -37,7 +37,7 @@ export default class CitySelector extends Component {
             images.push(<img
                 className={`city-selector__details__cigg--image ${(animated) ? 'delay-display' : 'no-animation'}`}
                 src="../../assets/img/ciggrette_icon.png"
-                alt="Cigarette" style={{animationDelay: `${0.5 * i}s`}}/>);
+                alt="Cigarette" style={{animationDelay: `${0.5 * i}s`}} />);
 
         }
         return images;

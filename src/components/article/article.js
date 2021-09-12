@@ -33,7 +33,7 @@ export default class Article extends Component {
                                 target="_blank"
                                 rel="noreferrer">{languageData[selectedLanguage]['article-info_1_category']}</a></span>
                         </div>
-                        <LanguageSwitcher/>
+                        <LanguageSwitcher />
                     </div>
                     <div className="article__content">
                         <div className="article__section">
@@ -43,9 +43,9 @@ export default class Article extends Component {
                                 }
                             })}
                         </div>
-                        <AnimationToggle/>
+                        <AnimationToggle />
                         <CitySelector
-                            citiesData={citiesData[selectedLanguage]} languageData={languageData[selectedLanguage]}/>
+                            citiesData={citiesData[selectedLanguage]} languageData={languageData[selectedLanguage]} />
                         <div className="article__section">
                             {getParasData(languageData[selectedLanguage]).map((par, i) => {
                                 if (i > 4) { // number of paragraphs after interactive
