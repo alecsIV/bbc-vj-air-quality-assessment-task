@@ -42,7 +42,6 @@ export default class CitySelector extends Component {
 
 
     render() {
-        console.log(this.state.selectedCity);
         return <Connect mapToProps={this.mapToProps}>
             {({animated}) => (
                 <div className='city-selector'>

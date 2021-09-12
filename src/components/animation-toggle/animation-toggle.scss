@@ -5,6 +5,11 @@
   max-width: 40rem;
   padding: 0 32px;
   margin: 0 auto;
+  justify-content: flex-end;
+
+  &__title {
+    margin-right: 1rem;
+  }
 
   /* The switch - the box around the slider */
   &__switch {
@@ -34,6 +39,7 @@
     -webkit-transition: .4s;
     border-radius: 34px;
     transition: .4s;
+    transform: scale(.8);
 
     &:before {
       position: absolute;
@@ -51,7 +57,7 @@
   }
 
   input:checked + &__slider {
-    background-color: #2196F3;
+    background-color: #37be28;
   }
 
   input:focus + &__slider {
